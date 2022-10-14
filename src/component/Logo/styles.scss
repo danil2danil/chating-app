@@ -1,0 +1,19 @@
+@import '../../vars.scss';
+
+.logo {
+    display: flex;
+    align-items: center;
+    @extend %title-font;
+    flex-basis: 180px;
+
+    &-img {
+      width: 60px;
+      object-fit: cover;
+      margin-right: 5px;
+    }
+
+    &-txt {
+      font-size: 28px;
+      color: $main-color;
+    }
+  }

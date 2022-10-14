@@ -1,0 +1,12 @@
+@import '../../vars.scss';
+
+.interactive-btn{
+    @extend %title-font;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    background-color: $secondary-color;
+    color: white;
+    cursor: pointer;
+  }

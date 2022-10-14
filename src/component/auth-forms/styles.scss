@@ -1,0 +1,52 @@
+@import '../../vars.scss';
+
+.auth {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 5px 5px 40px 0px rgba(48, 48, 48, 0.5);
+        border-radius: 15px;
+        width: 100%;
+        max-width: 375px;
+        background: white;
+        padding: 20px 30px;
+
+    }
+
+    &__logo {
+        margin-bottom: 50px;
+    }
+
+    &__input {
+        margin-bottom: 15px;
+    }
+
+    &__title {
+        @extend %title-font;
+        font-size: 30px;
+        color: $title-color;
+        text-align: center;
+        padding: 10px 0px 30px;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        &-link {
+            margin-top: 10px;
+            font-size: 16px;
+            @extend %title-font;
+            font-weight: 500;
+            color: rgb(83, 83, 255);
+        }
+    }
+}

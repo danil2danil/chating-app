@@ -1,0 +1,45 @@
+@import '../../vars.scss';
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 10px;
+  border-bottom: 2px solid $bg-body;
+
+  &__inner {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    &-ico {
+      width: 28px;
+      height: 28px;
+      color: $additional-color;
+    }
+
+    &:hover>&-ico {
+      color: $secondary-color;
+    }
+  }
+
+  &__item.active {
+    border-bottom: 2px solid $main-color;
+  }
+  &__item.active > &__item-ico{
+    color: $secondary-color;
+  }
+
+  &__btn{
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: 180px;
+  }
+}
