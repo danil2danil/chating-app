@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import './App.scss';
 import { SignInForm } from './component/auth-forms/SignInForm';
 import { SignUpForm } from './component/auth-forms/SignUpForm';
@@ -12,9 +12,10 @@ import { useCurentUser } from './firebase/firebase-auth';
 
 
 function App() {
-
+  const location = useLocation()
+  const navigate = useNavigate()
   useCurentUser()
- 
+
   return (
     <div className="App">
       <Routes>

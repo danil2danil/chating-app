@@ -14,19 +14,22 @@ export function SignIn(email, pass) {
     return signInWithEmailAndPassword(auth, email, pass)
 }
 
-export function SigOut() {
-    signOut(auth)
+export const SignOut = () => {
+    return signOut(auth)
 }
 
 export const useCurentUser = () => {
-    const dispatch = useDispatch()
-    // const location = useLocation()
-    // const navigate = useNavigate()
-    dispatch(setUserIsLoading(true))
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            dispatch(setUser(user.toJSON()))
-            dispatch(setUserIsLoading(false))
-        }
-    })
+    // const dispatch = useDispatch()
+    // dispatch(setUserIsLoading(true))
+    // onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //         dispatch(setUser(user.toJSON()))
+    //         dispatch(setUserIsLoading(false))
+    //     }
+    //     // else {
+    //     //     if(location !== '/sign_in' && location !== '/sign_up'){
+    //     //         navigate('/sign_in')
+    //     //     }
+    //     // }
+    // })
 }

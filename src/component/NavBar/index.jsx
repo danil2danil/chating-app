@@ -1,12 +1,20 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { CgProfile, CgMenuBoxed, CgHomeAlt } from 'react-icons/cg'
 import './styles.scss'
 import { InteractiveBtn } from '../InteractiveButton'
 import { Logo } from '../Logo'
-import { SigOut } from '../../firebase/firebase-auth'
+import { SignOut } from '../../firebase/firebase-auth'
 
 export const NavBar = () => {
+  const navigate = useNavigate()
+  
+
+  const handleSIgnOutCLick = () => {
+    SignOut()
+      // .then(navigate('/sign_in'))
+  }
+
   return (
     <nav className='navigation'>
       <Logo />
@@ -22,7 +30,7 @@ export const NavBar = () => {
         </NavLink>
       </div>
       <div className="navigation__btn">
-        <InteractiveBtn onClickFunc={SigOut}>Выйти</InteractiveBtn>
+        <InteractiveBtn onClickFunc={handleSIgnOutCLick}>Выйти</InteractiveBtn>
       </div>
     </nav>
   )
