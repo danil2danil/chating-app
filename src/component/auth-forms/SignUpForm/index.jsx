@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import { SignUp } from '../../../firebase/firebase-auth';
 import { Input } from '../../Input';
 import { InteractiveBtn } from '../../InteractiveButton';
 import { Logo } from '../../Logo';
 import '../styles.scss'
+import { useDispatch } from 'react-redux';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../../firebase/firebase-initialize';
+import { setUser } from '../../../reudx/profile';
 
 
 export const SignUpForm = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [handleUserInf, sethandleUserInf] = useState({
     email: null,
@@ -23,11 +27,14 @@ export const SignUpForm = () => {
   }
 
   const handleSubmitClick = () => {
-    SignUp(handleUserInf.email, handleUserInf.password)
-      .then(res => {
-        console.log(res.user)
-        navigate('/profile')
+    createUserWithEmailAndPassword(auth, handleUserInf.email, handleUserInf.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user)
       })
+      .catch((error) => {
+        alert(error.code)
+      });
   }
 
   return (

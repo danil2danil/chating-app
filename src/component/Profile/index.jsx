@@ -11,7 +11,7 @@ export const Profile = () => {
     <div>
       {
         isUserLoading ?
-          <p>Загрузка</p>
+          <p>ЗАГРУЗКА</p>
           :
           <p>{currentUser.email}</p>
       }
