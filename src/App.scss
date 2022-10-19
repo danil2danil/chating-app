@@ -46,8 +46,10 @@ html{
   }
 
   .App{
-    max-width: 1100px;
-    background: white;
-    min-height: 100vh;
+    @extend %title-font;
+    line-height: normal;
+    font-size: 16px;
+    max-width: 1250px;
+    height: 100vh;
     margin: 0 auto;
   }

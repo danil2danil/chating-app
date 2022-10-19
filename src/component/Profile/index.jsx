@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './styles.scss'
 import { useSelector } from 'react-redux'
-import { getAuth } from 'firebase/auth'
 
 export const Profile = () => {
   const isUserLoading = useSelector(state=>state.user.isLoading)

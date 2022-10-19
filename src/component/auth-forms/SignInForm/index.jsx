@@ -4,9 +4,7 @@ import { Input } from '../../Input';
 import { InteractiveBtn } from '../../InteractiveButton';
 import { Logo } from '../../Logo';
 import '../styles.scss'
-import { useDispatch } from 'react-redux';
-import { setUser } from '../../../reudx/profile';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { auth } from '../../../firebase/firebase-initialize';
 
 
@@ -14,7 +12,7 @@ import { auth } from '../../../firebase/firebase-initialize';
 
 export const SignInForm = () => {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+
   const [handleUserInf, sethandleUserInf] = useState({
     email: null,
     password: null,

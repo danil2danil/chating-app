@@ -1,24 +1,16 @@
 import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { CgProfile, CgMenuBoxed, CgHomeAlt } from 'react-icons/cg'
 import './styles.scss'
 import { InteractiveBtn } from '../InteractiveButton'
 import { Logo } from '../Logo'
-import { signOut } from 'firebase/auth'
+import { signOut, getAuth } from 'firebase/auth'
 import { auth } from '../../firebase/firebase-initialize'
-import { useDispatch } from 'react-redux'
-import { setUser } from '../../reudx/profile'
+
 
 export const NavBar = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  
-
   const handleSIgnOutCLick = () => {
     signOut(auth)
-      .then(
-        dispatch(setUser({}))
-      )
   }
 
   return (

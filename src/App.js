@@ -10,6 +10,7 @@ import { MessageRoom } from './component/MessageRoom';
 import { Profile } from './component/Profile';
 import { setUser, setUserIsLoading } from './reudx/profile';
 import { useEffect } from 'react';
+import { ProfileCastomizationForm } from './component/ProfileCгstomiztionForm';
 
 
 
@@ -30,7 +31,7 @@ function App() {
       }
     })
   }, [auth]);
-    
+
   return (
     <div className="App">
       <Routes>
@@ -41,6 +42,7 @@ function App() {
         </Route>
         <Route path='/sign_in' element={<SignInForm />} />
         <Route path='/sign_up' element={<SignUpForm />} />
+        <Route path='/customize_hero' element={<ProfileCastomizationForm />} />
       </Routes>
     </div>
   );
