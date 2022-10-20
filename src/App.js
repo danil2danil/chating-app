@@ -19,7 +19,6 @@ function App() {
   const auth = getAuth();
   const navigate = useNavigate()
   useEffect(() => {
-    dispatch(setUserIsLoading(true))
     onAuthStateChanged(auth, (user) => {
       if (user) {
         dispatch(setUser(user.toJSON()))

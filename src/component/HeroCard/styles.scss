@@ -42,6 +42,9 @@
         left: 0px;
         background: rgba($main-color, .5);
         backdrop-filter: blur(.07em);
+        &-txt{
+            text-align: right;
+        }
     }
 
     &__checked-mask.active{

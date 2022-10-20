@@ -1,0 +1,49 @@
+@import '../../vars.scss';
+
+.profile{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 30px;
+
+    &__inner{
+        display: flex;
+        align-items: center;
+    }
+
+    &__avatar{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid $secondary-color;
+        margin-right: 20px;
+    }
+
+    &__info{
+        flex-basis: 600px;
+        padding-left: 20px;
+        align-self: flex-start;
+        border-left: 1px solid gainsboro;
+        display: block;
+        min-height: 300px;
+
+        &-txt{
+            margin-bottom: 10px;
+            @extend %default-font;
+            font-weight: 500;
+            font-size: 26px;
+        }
+        &-description{
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        &-achievements{
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+
+    }
+}

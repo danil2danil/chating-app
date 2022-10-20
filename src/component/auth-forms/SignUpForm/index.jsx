@@ -7,13 +7,15 @@ import '../styles.scss'
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { auth } from '../../../firebase/firebase-initialize';
 import { useNavigate } from 'react-router-dom';
+import { setUserDataBaseInfo } from '../../../firebase/firebase-firestore';
 
 
 export const SignUpForm = () => {
   const navigate = useNavigate()
   const [handleUserInf, sethandleUserInf] = useState({
-    email: null,
-    password: null,
+    email: "",
+    password: "",
+    nickname: "",
   });
 
   const handleUserInfChange = (field, data) => {
@@ -28,10 +30,10 @@ export const SignUpForm = () => {
     createUserWithEmailAndPassword(auth, handleUserInf.email, handleUserInf.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user)
+        setUserDataBaseInfo(user.uid, {nickname: handleUserInf.nickname})
       })
       .then(
-        navigate('/')
+        navigate('/customize_hero')
       )
       .catch((error) => {
         alert(error.code)
@@ -47,10 +49,13 @@ export const SignUpForm = () => {
         <div className="auth__inner">
           <h3 className='auth__title'>Регистрация</h3>
           <div className="auth__input">
+            <Input types='text' placeholder='Никнейм' onChangeFunc={handleUserInfChange} changebleValue='nickname' />
+          </div>
+          <div className="auth__input">
             <Input types='email' placeholder='Адрес эл.почты' onChangeFunc={handleUserInfChange} changebleValue='email' />
           </div>
           <div className="auth__input">
-            <Input types='password' placeholder='Пароль' onChangeFunc={handleUserInfChange} changebleValue='password' />
+            <Input types='password' placeholder='Пароль (*не меннее 3-х символов)' onChangeFunc={handleUserInfChange} changebleValue='password' />
           </div>
           <div className="auth__buttons">
             <InteractiveBtn onClickFunc={handleSubmitClick}>

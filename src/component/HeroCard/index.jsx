@@ -9,7 +9,8 @@ export const HeroCard = ({heroImgLink, heroName, heroDescription, heroID, isHero
 
   return (
     <div className='hero' onClick={handleChose}>
-      <div className= {isHeroChosed ? 'hero__checked-mask active' : 'hero__checked-mask'}></div>
+      <div className= {isHeroChosed ? 'hero__checked-mask active' : 'hero__checked-mask'}>
+      </div>
       <div className="hero__inner">
         <img className="hero__img" src={`./images/heroes/${heroImgLink}.jpg`} />
         <div className="hero__box">

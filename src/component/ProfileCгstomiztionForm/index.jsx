@@ -1,15 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import './styles.scss'
-import { getProfileHeroes } from '../../firebase/firebase-firestore';
+import { getProfileHeroes, updateProfileHero } from '../../firebase/firebase-firestore';
 import { HeroCard } from '../HeroCard';
+import { InteractiveBtn } from '../InteractiveButton';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 export const ProfileCastomizationForm = () => {
   const [heroesCards, setHeroesCards] = useState([])
   const [chosedHero, setChosedHero] = useState("")
+  const currentUser = useSelector(state => state.user.user)
+  const navigate = useNavigate()
 
   const choseHeroFunc = (hero) => {
     setChosedHero(hero)
+  }
+
+  const handleSubmitChose = () => {
+    updateProfileHero(currentUser.uid, chosedHero)
+      .then(
+        navigate('/')
+      )
+      .catch(error => {
+        alert(error.message)
+      })
   }
 
   useEffect(() => {
@@ -37,6 +52,10 @@ export const ProfileCastomizationForm = () => {
             />
           )
         })}
+      </div>
+      <p className="heroes__message">*Ты сможешь изменить свой выбор в любой момент на странице своего профиля</p>
+      <div className="heroes__submit-btn">
+        <InteractiveBtn onClickFunc={handleSubmitChose}>Подтвердить выбор</InteractiveBtn>
       </div>
     </div>
   )

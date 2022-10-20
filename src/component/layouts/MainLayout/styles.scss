@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: scroll;
   &__nav{
     width: 100%;
     background: white;
@@ -15,5 +14,6 @@
     background: white;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    overflow-y: auto;
   }
 }

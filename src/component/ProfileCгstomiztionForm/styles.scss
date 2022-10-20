@@ -4,7 +4,8 @@
     background: white;
     height: 100%;
     padding-top: 50px;
-    overflow: scroll;
+    overflow-y: auto;
+    padding: 35px 55px;
 
     &__title{
         text-align: center;
@@ -17,9 +18,17 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0px 55px;
     }
     &__inner > .hero:nth-child(2n){
         align-self: flex-end;
+    }
+
+    &__submit-btn{
+        text-align: right;
+    }
+
+    &__message{
+        color: $additional-color;
+        text-align: left;
     }
 }
