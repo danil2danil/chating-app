@@ -26,10 +26,11 @@ function App() {
       }
       else {
         dispatch(setUser({}))
+        dispatch(setUserIsLoading(true))
         navigate('/sign_in')
       }
     })
-  }, [auth]);
+  }, []);
 
   return (
     <div className="App">

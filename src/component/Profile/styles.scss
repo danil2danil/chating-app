@@ -23,22 +23,32 @@
     &__info{
         flex-basis: 600px;
         padding-left: 20px;
-        align-self: flex-start;
         border-left: 1px solid gainsboro;
         display: block;
-        min-height: 300px;
 
+        &-field{
+            font-weight: 400;
+            font-size: 18px;
+            color: $main-color-2;
+        }
         &-txt{
+            @extend %title-font;
             margin-bottom: 10px;
-            @extend %default-font;
+            color: $title-color;
             font-weight: 500;
-            font-size: 26px;
+            font-size: 20px;
         }
         &-description{
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 400;
             margin-bottom: 20px;
+            color: $title-color;
         }
+
+        &-time{
+            font-size: 14px;
+        }
+
         &-achievements{
             font-size: 16px;
             font-weight: 500;

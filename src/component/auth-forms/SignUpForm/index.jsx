@@ -8,6 +8,7 @@ import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { auth } from '../../../firebase/firebase-initialize';
 import { useNavigate } from 'react-router-dom';
 import { setUserDataBaseInfo } from '../../../firebase/firebase-firestore';
+import { Timestamp } from 'firebase/firestore';
 
 
 export const SignUpForm = () => {
@@ -18,6 +19,8 @@ export const SignUpForm = () => {
     nickname: "",
   });
 
+ 
+
   const handleUserInfChange = (field, data) => {
     sethandleUserInf((current) => {
       const temp = { ...current }
@@ -27,16 +30,15 @@ export const SignUpForm = () => {
   }
 
   const handleSubmitClick = () => {
+    const userDataBaseInfo = {
+      nickname: handleUserInf.nickname,
+      regTime: Timestamp.now()
+    }
     createUserWithEmailAndPassword(auth, handleUserInf.email, handleUserInf.password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        setUserDataBaseInfo(user.uid, {nickname: handleUserInf.nickname})
-      })
-      .then(
-        navigate('/customize_hero')
-      )
+      .then(userCredential => setUserDataBaseInfo(userCredential.user.uid, {...userDataBaseInfo}))
+      .then(() => {navigate('/customize_hero')})
       .catch((error) => {
-        alert(error.code)
+        alert(error.message)
       });
   }
 

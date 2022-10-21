@@ -28,15 +28,9 @@ export const SignInForm = () => {
 
   const handleSubmitClick = async () => {
     signInWithEmailAndPassword(auth, handleUserInf.email, handleUserInf.password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user)
-      })
-      .then(
-        navigate('/')
-      )
+      .then(() => { navigate('/') })
       .catch((error) => {
-        alert(error.code)
+        alert(error.message)
       });
   }
 
