@@ -4,7 +4,7 @@ import './styles.scss'
 export const HeroCard = ({heroImgLink, heroName, heroDescription, heroID, isHeroChosed, choseHeroFunc}) => {
 
   const handleChose = ()=> {
-    choseHeroFunc(heroID)
+    choseHeroFunc(heroID, heroImgLink)
   }
 
   return (

@@ -9,12 +9,12 @@ import { useNavigate } from 'react-router-dom';
 
 export const ProfileCastomizationForm = () => {
   const [heroesCards, setHeroesCards] = useState([])
-  const [chosedHero, setChosedHero] = useState("")
+  const [chosedHero, setChosedHero] = useState({})
   const currentUser = useSelector(state => state.user.user)
   const navigate = useNavigate()
 
-  const choseHeroFunc = (hero) => {
-    setChosedHero(hero)
+  const choseHeroFunc = (hero, img) => {
+    setChosedHero({hero, img})
   }
 
   const handleSubmitChose = () => {
@@ -47,7 +47,7 @@ export const ProfileCastomizationForm = () => {
               heroDescription={description}
               heroImgLink={img}
               heroID={card.id}
-              isHeroChosed={chosedHero === card.id ? true : false}
+              isHeroChosed={chosedHero.hero === card.id ? true : false}
               choseHeroFunc={choseHeroFunc}
             />
           )

@@ -19,7 +19,9 @@ export const useGetProfileInfo = (isUserLoading, currentUser, setIsLoading) => {
                     getProfileHeroInfo(result.profileHero)
                         .then(res => {
                             setHeroInfo(res.data())
-                            setIsLoading(false)
+                            setTimeout(()=>{
+                                setIsLoading(false)
+                            }, 800)
                         })
                 })
         }
