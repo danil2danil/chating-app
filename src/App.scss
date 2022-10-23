@@ -1,55 +1,69 @@
 @import './vars.scss';
 
-html{
-    box-sizing: border-box;
-  }
-  *, *:before, *::after{
-    box-sizing: inherit;
-  }
-  
-  html,
-  body,
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  ul,
-  ol,
-  li,
-  button{
-    padding: 0px;
-    margin: 0px;
-    outline: none;
-    border: 0px;
-  }
-  
-  a{
-    text-decoration: none;
-    outline: none;
-    border: 0px;
-    &:visited,&:active{
-      color: inherit;
-    }
-  }
-  
-  ul, 
-  ol,
-  li{
-    list-style-type: none ;
-  }
+html {
+  box-sizing: border-box;
+}
 
-  body{
-    background: $bg-body;
-  }
+*,
+*:before,
+*::after {
+  box-sizing: inherit;
+}
 
-  .App{
-    @extend %title-font;
-    line-height: normal;
-    font-size: 16px;
-    max-width: 1250px;
-    height: 100vh;
-    margin: 0 auto;
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+button {
+  padding: 0px;
+  margin: 0px;
+  outline: none;
+  border: 0px;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  border: 0px;
+
+  &:visited,
+  &:active {
+    color: inherit;
   }
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+}
+
+body {
+  background: $bg-body;
+}
+
+.App {
+  @extend %title-font;
+  line-height: normal;
+  font-size: 16px;
+  max-width: 1250px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 7px;               /* ширина всей полосы прокрутки */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $main-color-2;    /* цвет бегунка */
+  border-radius: 20px;       /* округлось бегунка */
+}

@@ -49,9 +49,9 @@ export const getChatRoomData = () => {
     return getDoc(chatRoomRef)
 }
 
-export const sendMessage = (nickname, imgLink, content) => {
+export const sendMessage = (nickname, imgLink, content, userUID) => {
     const docRef = doc(db, 'messenger', 'general_chat')
-    const newMessage = { nickname, imgLink, content, date: new Date() }
+    const newMessage = { author: nickname, imgLink, content, date: new Date(), userUID, id: Math.random()}
     console.log(newMessage)
     return (
         updateDoc(docRef, {
