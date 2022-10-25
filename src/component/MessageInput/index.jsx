@@ -27,7 +27,7 @@ export const MessageInput = ({ profileInfo, currentUser }) => {
 
   return (
     <div className='message-form'>
-      <input
+      <textarea
         className='input'
         type="text"
         value={inputValue}

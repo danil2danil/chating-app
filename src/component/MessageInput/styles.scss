@@ -1,7 +1,12 @@
-.message-form{
+.message-form {
     display: flex;
     width: 100%;
-    .input{
+
+    .input {
         margin-right: 10px;
+        padding: 10px;
+        max-height: 200px;
+        resize: none;
+        overflow: auto;
     }
 }

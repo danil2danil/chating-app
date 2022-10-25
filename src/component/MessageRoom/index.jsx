@@ -51,7 +51,7 @@ export const MessageRoom = () => {
               </div>
             </div>
             <div className="chatroom__body">
-              <MessagesList messages={chatRoomData} isLoading={isLoading} currentUser={currentUser} />
+              <MessagesList chatRoomData={chatRoomData} isLoading={isLoading} currentUser={currentUser} />
               <div className="chatroom__input">
                 <MessageInput profileInfo={profileInfo} currentUser={currentUser.uid} />
               </div>
